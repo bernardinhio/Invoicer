@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.invoicerapp.databinding.FragmentMainBinding
 import com.example.invoicerapp.viewmodel.MainFragmentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainFragment: Fragment() {
 
     lateinit var viewBinding: FragmentMainBinding
@@ -26,5 +28,13 @@ class MainFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.myInvoicesMutableLiveData.observe(
+            viewLifecycleOwner,
+            { arrayInvoices ->
+                viewBinding.tvResults = arrayInvoices.toString()
+            }
+        )
+        viewModel.fetchArrayOfInvoices()
     }
 }

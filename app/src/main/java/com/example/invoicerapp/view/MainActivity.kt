@@ -3,6 +3,7 @@ package com.example.invoicerapp.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.invoicerapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * STEPS
@@ -13,6 +14,7 @@ import com.example.invoicerapp.databinding.ActivityMainBinding
  * https://run.mocky.io/v3/cd78c7eb-9ee8-4578-8591-c2a49f90fe38
  *
  */
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewBinding: ActivityMainBinding
