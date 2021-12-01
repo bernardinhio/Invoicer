@@ -1,4 +1,6 @@
 package com.example.invoicerapp.viewmodel
 
-class MainFragmentViewModel {
+import androidx.lifecycle.ViewModel
+
+class MainFragmentViewModel: ViewModel() {
 }

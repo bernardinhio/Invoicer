@@ -4,6 +4,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.invoicerapp.databinding.ActivityMainBinding
 
+/**
+ * STEPS
+ *
+ * 1. Use ViewBinding, Jetpack components, MVVM, Navigation
+ *
+ * 2. I mocked a URL to get Data from so to use Retrofit
+ * https://run.mocky.io/v3/cd78c7eb-9ee8-4578-8591-c2a49f90fe38
+ *
+ */
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewBinding: ActivityMainBinding
