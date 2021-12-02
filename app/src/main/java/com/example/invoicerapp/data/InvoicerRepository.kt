@@ -13,7 +13,7 @@ import javax.inject.Singleton
 
 @Singleton
 class InvoicerRepository @Inject constructor(
-    private val retrofitApi: RetrofitApi
+    val retrofitApi: RetrofitApi
 ){
 
     suspend fun getMyInvoices(): MutableStateFlow<Array<Invoice>?>{

@@ -16,9 +16,6 @@ import javax.inject.Singleton
 object MyModule {
 
     @Provides
-    fun provideString(): String = "Habibi"
-
-    @Provides
     @Singleton
     fun provideRetrofitInstance(): Retrofit {
 

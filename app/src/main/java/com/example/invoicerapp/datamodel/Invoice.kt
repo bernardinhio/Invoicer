@@ -12,7 +12,7 @@ data class Invoice(
     var paymentTerms: String? = null,
     var clientName: String? = null,
     var clientEmail: String? = null,
-    var status: InvoiceStatus? = null,
+    var status: String? = null,
     var clientAddress: Address? = null,
     var senderAddress: Address? = null,
     var items: Array<Items>? = null,

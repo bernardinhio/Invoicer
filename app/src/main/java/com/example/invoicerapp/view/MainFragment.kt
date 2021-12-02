@@ -32,7 +32,10 @@ class MainFragment: Fragment() {
         viewModel.myInvoicesMutableLiveData.observe(
             viewLifecycleOwner,
             { arrayInvoices ->
-                viewBinding.tvResults = arrayInvoices.toString()
+                viewBinding.tvResults.text = "Retrofit result to fill RecyclerView below: "
+                arrayInvoices?.forEach {
+                    viewBinding.tvResults.text = viewBinding.tvResults.text.toString().plus(" * ${it.clientName}")
+                }
             }
         )
         viewModel.fetchArrayOfInvoices()
