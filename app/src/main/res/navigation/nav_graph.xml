@@ -3,11 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/navFragmentMain">
+    app:startDestination="@id/mainFragment">
 
-    <fragment android:id="@+id/navFragmentMain"
+    <fragment android:id="@+id/mainFragment"
         android:name="com.example.invoicerapp.view.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main"/>
+        android:label="fragment_main_in_graph"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_navFragmentMain_to_invoiceFragment"
+            app:destination="@id/invoiceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/invoiceFragment"
+        android:name="com.example.invoicerapp.view.AddEditInvoiceFragment"
+        android:label="InvoiceFragment_in_graph" >
+        <argument
+            android:name="clickedInvoice"
+            app:argType="com.example.invoicerapp.datamodel.Invoice"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_invoiceFragment_to_fragmentMain"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
 </navigation>

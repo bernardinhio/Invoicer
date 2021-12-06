@@ -19,6 +19,6 @@ data class Invoice(
     var total: String? = null
 ): Parcelable
 
-enum class InvoiceStatus (status: String?){
-    PAID("Paid"), PENDING("Pending"), DRAFT("Draft")
+enum class InvoiceStatus (val status: String?){
+    PAID("paid"), PENDING("pending"), DRAFT("draft")
 }

@@ -9,13 +9,17 @@
         android:id="@+id/tvResults"
         android:textSize="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Result"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPreviewInvoices"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/tvResults"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_invoice_overview"/>
+        tools:listitem="@layout/item_invoice_overview"
+        android:background="#80000000"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

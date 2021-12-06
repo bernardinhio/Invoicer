@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/drawable/ic_icon_arrow_down.xml" value="0.1" />
         <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/fragment_add_edit_invoice.xml" value="0.1" />
+        <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/fragment_invoice.xml" value="0.1" />
         <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/fragment_main.xml" value="0.1" />
-        <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/item_invoice_overview.xml" value="0.12571428571428572" />
+        <entry key="..\:/Projects/Mvvm Room With Paging With Retrofit/Projects/InvoicerApp/app/src/main/res/layout/item_invoice_overview.xml" value="0.1" />
       </map>
     </option>
   </component>
