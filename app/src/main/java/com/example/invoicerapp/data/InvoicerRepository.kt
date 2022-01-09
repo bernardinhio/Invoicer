@@ -3,6 +3,7 @@ package com.example.invoicerapp.data
 import android.util.Log
 import com.example.invoicerapp.api.RetrofitApi
 import com.example.invoicerapp.datamodel.Invoice
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import retrofit2.HttpException
 import retrofit2.Response
@@ -13,40 +14,58 @@ import javax.inject.Singleton
 
 @Singleton
 class InvoicerRepository @Inject constructor(
-    val retrofitApi: RetrofitApi
+    private val retrofitApi: RetrofitApi
 ){
 
-    suspend fun getMyInvoices(): MutableStateFlow<Array<Invoice>?>{
+    val listOfInvoices = MutableStateFlow<BackendResult>(BackendNotCalledYet)
+
+    suspend fun fetchListOfInvoices() {
 
         try {
             val response: Response<Array<Invoice>> =
                 retrofitApi.getInvoices()
 
+            // Simulate Late
+            listOfInvoices.value = BackendLoading
+            delay(5_000)
+
             if (response.code() == HttpURLConnection.HTTP_OK) {
                 val arrayOfInvoices: Array<Invoice>? = response.body()
-                return if (!arrayOfInvoices.isNullOrEmpty()){
+
+                if (!arrayOfInvoices.isNullOrEmpty()){
+                    listOfInvoices.value = BackendSuccess(arrayOfInvoices)
                     Log.d("retrofitCall", arrayOfInvoices.toString())
-                    MutableStateFlow<Array<Invoice>?>(arrayOfInvoices)
+
                 } else{
-                    Log.d("retrofitCall", "Empty Array of Invoices")
-                    return MutableStateFlow<Array<Invoice>?>(null)
+                    listOfInvoices.value = BackendFailure("Empty Array of Invoices!")
+                    Log.d("retrofitCall", "Empty Array of Invoices!")
                 }
+
             } else if(response.code() == HttpURLConnection.HTTP_NO_CONTENT){
-                Log.d("retrofitCall", "Empty no results from Server")
-                return MutableStateFlow<Array<Invoice>?>(null)
+                listOfInvoices.value = BackendFailure("Empty no results from Server!")
+                Log.d("retrofitCall", "Empty no results from Server!")
+
             } else {
+                listOfInvoices.value = BackendFailure("Server Broken")
                 Log.d("retrofitCall", "Server Broken")
-                return MutableStateFlow<Array<Invoice>?>(null)
             }
 
         } catch (e: IOException) {
-            Log.d("retrofitCall", "No Internet")
-            return MutableStateFlow<Array<Invoice>?>(null)
+            Log.d("retrofitCall", "No Internet!")
+            listOfInvoices.value = BackendFailure("No Internet!")
 
         } catch (exception: HttpException) {
-            Log.d("retrofitCall", "Server Broken")
-            return MutableStateFlow<Array<Invoice>?>(null)
+            Log.d("retrofitCall", "Server Broken!")
+            listOfInvoices.value = BackendFailure("Server Broken!")
         }
 
     }
 }
+
+// Backend Status
+sealed class BackendResult
+data class BackendSuccess(val data: Array<Invoice>): BackendResult()
+data class BackendFailure(val message: String): BackendResult()
+object BackendNotCalledYet: BackendResult()
+object BackendLoading: BackendResult()
+
