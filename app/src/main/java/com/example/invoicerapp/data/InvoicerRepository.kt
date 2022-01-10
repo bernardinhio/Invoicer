@@ -40,14 +40,6 @@ class InvoicerRepository @Inject constructor(
                     listOfInvoices.value = BackendFailure("Empty Array of Invoices!")
                     Log.d("retrofitCall", "Empty Array of Invoices!")
                 }
-
-            } else if(response.code() == HttpURLConnection.HTTP_NO_CONTENT){
-                listOfInvoices.value = BackendFailure("Empty no results from Server!")
-                Log.d("retrofitCall", "Empty no results from Server!")
-
-            } else {
-                listOfInvoices.value = BackendFailure("Server Broken")
-                Log.d("retrofitCall", "Server Broken")
             }
 
         } catch (e: IOException) {
