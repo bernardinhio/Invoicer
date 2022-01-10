@@ -3,14 +3,18 @@ I originally made this simple App some time ago to use DaggerHilt with Retrofit 
 Some screenshots
 
 Homepage
+
 ![Screenshot_1641772825](https://user-images.githubusercontent.com/20923486/148707114-18bd208f-71f4-45f3-96dc-fbd5b9dbc82f.png) 
 
 Loading page
+
 ![Screenshot_1641772837](https://user-images.githubusercontent.com/20923486/148707135-cfe94dd2-0a3a-4c00-bc54-e07c4ef7a21f.png)
 
 Result Success
+
 ![Screenshot_1641772848](https://user-images.githubusercontent.com/20923486/148707143-865bee18-c6d8-4624-8642-a0904c06a5a9.png)
 
 Error No Internet
+
 ![Screenshot_1641772885](https://user-images.githubusercontent.com/20923486/148707156-67094b03-3ca9-4f01-9e72-f75b2611734e.png)
 
